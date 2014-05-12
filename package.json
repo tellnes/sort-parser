@@ -1,0 +1,36 @@
+{
+  "name": "sort-parser",
+  "version": "0.0.0",
+  "description": "sort-parser",
+  "keywords": [
+    "sort",
+    "parse",
+    "sort-parser",
+    "parse",
+    "mongodb",
+    "elastic search",
+    "es",
+    "order"
+  ],
+  "author": "Christian Tellnes <christian@tellnes.no> (http://christian.tellnes.com/)",
+  "main": "index.js",
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tap": "~0.4.9"
+  },
+  "scripts": {
+    "test": "tap test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tellnes/sort-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tellnes/sort-parser/issues"
+  },
+  "homepage": "https://github.com/tellnes/sort-parser"
+}
