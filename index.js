@@ -6,6 +6,7 @@ exports.normalize = normalize
 exports.es = es
 exports.elasticSearch = es
 
+exports.mongo = mongodb
 exports.mongodb = mongodb
 
 
