@@ -9,6 +9,7 @@ exports.elasticSearch = es
 exports.mongo = mongodb
 exports.mongodb = mongodb
 
+exports.fieldsArray = fieldsArray
 
 
 function SortParser(options) {
@@ -21,6 +22,7 @@ function SortParser(options) {
   }
 
   var format = options.format
+  if (Array.isArray(format)) format = multiFormat(format)
   if (typeof format === 'string') format = exports[format]
   if (!format) format = defaultFormat
 
@@ -65,6 +67,20 @@ function SortParser(options) {
   return parser
 }
 
+function multiFormat(formats) {
+  formats = formats.map(function (format) {
+    if (typeof format === 'string') format = exports[format]
+    return format
+  }).filter(Function)
+
+  return function (result, field, order) {
+    if (!result) result = new Array(formats.length)
+    for (var i = 0; i < formats.length; i++) {
+      result[i] = formats[i](result[i], field, order)
+    }
+    return result
+  }
+}
 
 function es(result, field, order) {
   if (!result) result = []
@@ -79,6 +95,12 @@ function es(result, field, order) {
 function mongodb(result, field, order) {
   if (!result) result = {}
   if (field) result[field] = order
+  return result
+}
+
+function fieldsArray(result, field, order) {
+  if (!result) result = []
+  if (field) result.push(field)
   return result
 }
 
