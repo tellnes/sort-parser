@@ -32,5 +32,8 @@
   "bugs": {
     "url": "https://github.com/tellnes/sort-parser/issues"
   },
-  "homepage": "https://github.com/tellnes/sort-parser"
+  "homepage": "https://github.com/tellnes/sort-parser",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
 }
